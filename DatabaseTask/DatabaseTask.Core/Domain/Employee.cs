@@ -72,4 +72,3 @@ namespace DatabaseTask.Core.Domain
     //    public string FirstName { get; set; }
     //}
 }
-
