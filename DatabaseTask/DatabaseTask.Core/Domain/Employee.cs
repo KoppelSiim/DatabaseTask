@@ -9,22 +9,52 @@ namespace DatabaseTask.Core.Domain
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int SocialSecurityNumber { get; set; }
+        public string ContactAddress { get; set; }
+        public int ContactPhone { get; set; }
 
-        /// ESIMENE HINDELINE HARJUTUS
-        /// Nõuded ja tegevus:
-        /// 1. Kui tahate, siis võite forkida minu projekti GitHubist ja läbi Sourcetree enda arvutisse tõmmata.
-        /// 2. See teeb teil teise hindelise ülesande tegemise lihtsamaks kuna siis on ainult vaja commitida ja pushida.
-        /// 3. Teha Code First ja Database First Migration.
-        /// 4. Teha word dokumendile töökäik koos piltidega ja detailne. Mitte, et vajuta seda ja mine sinna ning siis on valmis. 
-        /// St, et kui mina hakkan teie õpetust jäljendama, siis ma saan selle tehtud.
-        /// 5. Kindlasti tahan näha MS SQL DB-st pilti enne migrationit ja peale seda.
-        /// 6. Enne Database first migrationi tegemist tuleb ära kustutada Employee.cs ja TARge20DbContext.cs​ . Seda juhul, kui kasutad minu projektipõhja.
-        /// 7. Code first puhul peab tekkima Serverisse sinu loodud objekt(id), serverisse __EFMigrationsHistory objekt ja  Migrations kaust projekti.
-        /// 8. Database first puhul tekib projekti Models-i alla Serveris loodud objekt(id).
+        public string ContactEmail { get; set; }
+        public DateTime StartOfEmployment { get; set; }
+        public DateTime? EndOfEmployment { get; set; }
+
+        public string? Comment { get; set; }
+
+        // Foreign key properties to reference with Company
+        public Company Company { get; set; }
+        public Guid CompanyId { get; set; }
+
+        // Foreign key properties to reference with Branch Office
+        public BranchOffice BranchOffice { get; set; }
+        public Guid BranchOfficeId { get; set; }
+
+        // Foreign key properties to reference with Job Title
+        public JobTitles JobTitle { get; set; }
+        public Guid JobTitleId { get; set; }
+
+        // Navigation property to represent the relationship with Job Titles
+        public ICollection<JobTitles> JobTitles { get; set; } = new List<JobTitles>();
+
+        // Navigation property to represent the relationship with Children
+        public ICollection<Children> Children { get; set; } = new List<Children>();
+
+        // Navigation property to represent the relationship with Vacations
+        public ICollection<Vacations> Vacations { get; set; } = new List<Vacations>();
+
+        // Navigation property to represent the relationship with SickLeaves
+        public ICollection<SickLeaves> SickLeaves { get; set; } = new List<SickLeaves>();
+
+        // Navigation property to represent the relationship with AccessPermissions
+        public ICollection<AccessPermissions> AccessPermissions { get; set; } = new List<AccessPermissions>();
+
+        // Navigation property to represent the relationship with HealthInspection
+        public ICollection<HealthInspection> HealthInspections { get; set; } = new List<HealthInspection>();
+
+        // Navigation property to represent the relationship with Rental
+        public ICollection<Rental> Rentals { get; set; } = new List<Rental>();
 
 
         /// TEINE HINDELINE HARJUTUS
-        ///
+
         /// 1. Teha Teie meeskonna poolt esitletud FirmaDB-st objektide struktuur.
         /// 2. Kui see on valmis, siis teha code first migration. Vajadusel võib mitu migrationit teha.
         /// 3. NB! Kasutate enda meeskonna poolt esitatud FirmaDB ERD-d, aga igaüks teeb individuaalselt.
@@ -56,19 +86,4 @@ namespace DatabaseTask.Core.Domain
         //public List<Children> Childrens { get; set; }
     }
 
-
-    //public enum Gender
-    //{
-    //    Female, 
-    //    Male,
-    //    Unknown
-    //}
-
-    //public class Children
-    //{
-    //    [Key]
-    //    public Guid Id { get; set; }
-
-    //    public string FirstName { get; set; }
-    //}
 }

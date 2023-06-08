@@ -2,11 +2,11 @@
 
 namespace DatabaseTask.Core.Domain
 {
-    public class Company
+    public class BranchOffice
     {
         [Key]
         public Guid Id { get; set; }
-        public string RegisterNumber { get; set; }
+        public int BranchOfficeRegisterNumber { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string WebSite { get; set; }
@@ -14,11 +14,11 @@ namespace DatabaseTask.Core.Domain
         public string ContactPerson { get; set; }
         public int ContactPhone { get; set; }
         public string ContactEmail { get; set; }
-        public string? Comment {get;set;}
+        public string? Comment { get; set; }
 
-        // Navigation property to represent the relationship with branch offices
-        public ICollection<BranchOffice> BranchOffices { get; set; } = new List<BranchOffice>();
-
+        // Foreign key property to reference the associated company
+        public Guid CompanyId { get; set; }
+        public Company Company { get; set; }
         // Navigation property to represent the relationship with employees
         public ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
