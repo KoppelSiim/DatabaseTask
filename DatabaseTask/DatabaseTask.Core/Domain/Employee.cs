@@ -19,17 +19,10 @@ namespace DatabaseTask.Core.Domain
 
         public string? Comment { get; set; }
 
-        // Foreign key properties to reference with Company
-        public Company Company { get; set; }
-        public Guid CompanyId { get; set; }
-
+       
         // Foreign key properties to reference with Branch Office
         public BranchOffice BranchOffice { get; set; }
         public Guid BranchOfficeId { get; set; }
-
-        // Foreign key properties to reference with Job Title
-        public JobTitles JobTitle { get; set; }
-        public Guid JobTitleId { get; set; }
 
         // Navigation property to represent the relationship with Job Titles
         public ICollection<JobTitles> JobTitles { get; set; } = new List<JobTitles>();

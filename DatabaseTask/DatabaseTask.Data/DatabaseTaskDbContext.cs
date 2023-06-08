@@ -14,7 +14,7 @@ namespace DatabaseTask.Data
         public DbSet<BranchOffice> BranchOffices { get; set; }
         public DbSet<Children> Children { get; set; }
         public DbSet<Company> Company { get; set; }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employee { get; set; }
         public DbSet<HealthInspection> HealthInspections { get; set; }
         public DbSet<JobTitles> JobTitles { get; set; }
         public DbSet<Rental> Rentals { get; set; }

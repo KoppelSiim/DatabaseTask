@@ -19,7 +19,5 @@ namespace DatabaseTask.Core.Domain
         // Navigation property to represent the relationship with branch offices
         public ICollection<BranchOffice> BranchOffices { get; set; } = new List<BranchOffice>();
 
-        // Navigation property to represent the relationship with employees
-        public ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

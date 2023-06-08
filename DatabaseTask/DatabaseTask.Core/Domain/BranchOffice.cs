@@ -19,6 +19,7 @@ namespace DatabaseTask.Core.Domain
         // Foreign key property to reference the associated company
         public Guid CompanyId { get; set; }
         public Company Company { get; set; }
+
         // Navigation property to represent the relationship with employees
         public ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
