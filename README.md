@@ -1,2 +1,2 @@
 # DatabaseTask
-![erd](./autoerd.png)
+![erd](./autoerd.jpg)
